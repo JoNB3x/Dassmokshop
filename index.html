@@ -413,261 +413,180 @@ body {
     </div>
 
     <!-- Filtros -->
-    <div class="flex flex-wrap gap-2 mt-4 md:mt-0 text-xs">
-      <button class="px-4 py-2 rounded-lg bg-white text-black font-bold uppercase tracking-wider">Todos</button>
-      <button class="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 uppercase tracking-wider transition">Desechables Smart</button>
-      <button class="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 uppercase tracking-wider transition">Pods & Kits</button>
-      <button class="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 uppercase tracking-wider transition">Sales & Repuestos</button>
-    </div>
+<div id="catalogFilters" class="flex flex-wrap gap-2 mt-4 md:mt-0 text-xs">
+
+  <!-- TODOS (activo por defecto) -->
+  <button
+    data-filter="todos"
+    class="filter-btn px-4 py-2 rounded-lg bg-white text-black font-bold uppercase tracking-wider transition">
+    Todos
+  </button>
+
+  <!-- DESECHABLES -->
+  <button
+    data-filter="desechables"
+    class="filter-btn px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 uppercase tracking-wider transition">
+    Desechables Smart
+  </button>
+
+  <!-- STREET WEAR (nuevo) -->
+  <button
+    data-filter="street"
+    class="filter-btn px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 uppercase tracking-wider transition">
+    Street Wear
+  </button>
+
+</div>
+
+
   </div>
 
   <!-- GRID -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    <!-- Producto 1 -->
-    <div class="bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up">
-      <div>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
-          <span>15,000 Puffs</span>
-          <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">Top Seller</span>
-        </div>
+  <!-- Producto 1: LitPod 15000 (Desechable) -->
+  <div class="product-card bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up"
+       data-category="desechables">
 
-        <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
-          <div class="text-center">
-            <i class="fa-solid fa-mobile-screen-button text-5xl text-gray-400 mb-2"></i>
-            <div class="text-[11px] text-gray-500 font-mono tracking-widest">OLED DISPLAY DUAL MESH</div>
-          </div>
-        </div>
+    <div>
+      <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
+        <span>15,000 Puffs</span>
+        <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">Top Seller</span>
+      </div>
 
-        <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center overflow-hidden mb-6 border border-white/5">
-          <img src="assets/img/16.png" alt="LitPod 15000 Puffs" class="w-full h-full object-contain p-2"/>
-        </div>
-
-        <h3 class="text-xl font-bold uppercase tracking-wide text-white">LitPod 15000 Puffs Dual Mesh</h3>
-        <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-          Pantalla OLED inteligente integrada con indicador de nivel de líquido y batería. Potencia dual regulable.
-        </p>
-
-        <div class="mt-4 flex flex-wrap gap-1.5">
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Watermelon Ice</span>
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Miami Mint</span>
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Blue Razz</span>
+      <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
+        <div class="text-center">
+          <i class="fa-solid fa-mobile-screen-button text-5xl text-gray-400 mb-2"></i>
+          <div class="text-[11px] text-gray-500 font-mono tracking-widest">OLED DISPLAY DUAL MESH</div>
         </div>
       </div>
 
-      <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-        <div>
-          <div class="text-2xl font-black text-white">$22.00 USD</div>
-          <div class="text-xs text-gray-400 font-medium">$88.000 COP</div>
-        </div>
+      <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center overflow-hidden mb-6 border border-white/5">
+        <img src="assets/img/16.png" alt="LitPod 15000 Puffs" class="w-full h-full object-contain p-2"/>
+      </div>
 
-        <button onclick="openQuickView('Pulse 15000 Puffs Dual Mesh','22.00','88000',['Watermelon Ice','Miami Mint','Blue Razz']);"
-                class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-          <span>Pedir</span>
-          <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </button>
+      <h3 class="text-xl font-bold uppercase tracking-wide text-white">LitPod 15000 Puffs Dual Mesh</h3>
+      <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+        Pantalla OLED inteligente integrada con indicador de nivel de líquido y batería. Potencia dual regulable.
+      </p>
+
+      <div class="mt-4 flex flex-wrap gap-1.5">
+        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Watermelon Ice</span>
+        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Miami Mint</span>
+        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Blue Razz</span>
       </div>
     </div>
 
-    <!-- Producto 2 -->
-    <div class="bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up">
+    <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
       <div>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
-          <span>Kit Rellenable</span>
-          <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">USB-C Fast</span>
-        </div>
-
-        <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
-          <div class="text-center">
-            <i class="fa-solid fa-pen-nib text-5xl text-gray-400 mb-2"></i>
-            <div class="text-[11px] text-gray-500 font-mono tracking-widest">BATERÍA 1000MAH • 30W</div>
-          </div>
-        </div>
-
-        <h3 class="text-xl font-bold uppercase tracking-wide text-white">Pro Pod Kit Airflow Slider</h3>
-        <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-          Dispositivo recargable ultra-compacto con control de flujo de aire milimétrico y cartuchos antifugas.
-        </p>
-
-        <div class="mt-4 flex flex-wrap gap-1.5">
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Carbon Black</span>
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Gunmetal Grey</span>
-        </div>
+        <div class="text-2xl font-black text-white">$22.00 USD</div>
+        <div class="text-xs text-gray-400 font-medium">$88.000 COP</div>
       </div>
 
-      <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-        <div>
-          <div class="text-2xl font-black text-white">$34.00 USD</div>
-          <div class="text-xs text-gray-400 font-medium">$136.000 COP</div>
-        </div>
+      <button onclick="openQuickView('LitPod 15000 Puffs Dual Mesh','22.00','88000',['Watermelon Ice','Miami Mint','Blue Razz']);"
+              class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+        <span>Pedir</span>
+        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+      </button>
+    </div>
+  </div>
 
-        <button onclick="openQuickView('Pro Pod Kit Airflow Slider','34.00','136000',['Carbon Black','Gunmetal Grey']);"
-                class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-          <span>Pedir</span>
-          <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </button>
+
+  <!-- Producto 2: Kit Switch 5000 (Desechable) -->
+  <div class="product-card bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up"
+       data-category="desechables">
+
+    <div>
+      <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
+        <span>5,000 Puffs</span>
+        <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">New</span>
+      </div>
+
+      <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
+        <i class="fa-solid fa-bolt text-5xl text-gray-400"></i>
+      </div>
+
+      <h3 class="text-xl font-bold uppercase tracking-wide text-white">Kit Switch 5000</h3>
+      <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+        Dispositivo compacto con excelente autonomía y sabores intensos.
+      </p>
+
+      <div class="mt-4 flex flex-wrap gap-1.5">
+        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Strawberry Ice</span>
+        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Cool Mint</span>
       </div>
     </div>
 
-    <!-- Producto 3 -->
-    <div class="bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up">
+    <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
       <div>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
-          <span>Smart Wattage</span>
-          <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">Turbo Mode</span>
-        </div>
-
-        <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
-          <div class="text-center">
-            <i class="fa-solid fa-gauge-high text-5xl text-gray-400 mb-2"></i>
-            <div class="text-[11px] text-gray-500 font-mono tracking-widest">MODO 12W / 24W DUAL</div>
-          </div>
-        </div>
-
-        <h3 class="text-xl font-bold uppercase tracking-wide text-white">Turbo 15000 Smart Device</h3>
-        <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-          Selector de potencia Turbo para ráfagas de vapor masivas y sabor potenciado con bobinas twin mesh.
-        </p>
-
-        <div class="mt-4 flex flex-wrap gap-1.5">
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Sour Apple Ice</span>
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Grape Energy</span>
-        </div>
+        <div class="text-2xl font-black text-white">$14.00 USD</div>
+        <div class="text-xs text-gray-400 font-medium">$56.000 COP</div>
       </div>
 
-      <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-        <div>
-          <div class="text-2xl font-black text-white">$24.00 USD</div>
-          <div class="text-xs text-gray-400 font-medium">$96.000 COP</div>
-        </div>
+      <button onclick="openQuickView('Kit Switch 5000','14.00','56000',['Strawberry Ice','Cool Mint']);"
+              class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5">
+        <span>Pedir</span>
+        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+      </button>
+    </div>
+  </div>
 
-        <button onclick="openQuickView('Turbo 15000 Smart Device','24.00','96000',['Sour Apple Ice','Grape Energy']);"
-                class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-          <span>Pedir</span>
-          <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </button>
+
+  <!-- Producto 3: Click 30000 (Desechable) -->
+  <div class="product-card bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up"
+       data-category="desechables">
+
+    <div>
+      <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
+        <span>30,000 Puffs</span>
+        <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">Mega Puff</span>
+      </div>
+
+      <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
+        <i class="fa-solid fa-cloud text-5xl text-gray-400"></i>
+      </div>
+
+      <h3 class="text-xl font-bold uppercase tracking-wide text-white">Click 30000</h3>
+      <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+        Autonomía extrema con sabores premium y rendimiento constante.
+      </p>
+
+      <div class="mt-4 flex flex-wrap gap-1.5">
+        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Grape Ice</span>
+        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Mango Blast</span>
       </div>
     </div>
 
-    <!-- Producto 4 -->
-    <div class="bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up">
+    <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
       <div>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
-          <span>13,000 Puffs</span>
-          <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">Ultra Slim</span>
-        </div>
-
-        <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
-          <div class="text-center">
-            <i class="fa-solid fa-wand-magic-sparkles text-5xl text-gray-400 mb-2"></i>
-            <div class="text-[11px] text-gray-500 font-mono tracking-widest">DISEÑO COMPACTO USB-C</div>
-          </div>
-        </div>
-
-        <h3 class="text-xl font-bold uppercase tracking-wide text-white">Slim 13000 Pocket Edition</h3>
-        <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-          Factor de forma plano y ultra ligero ideal para llevar en el bolsillo con una gran reserva de líquido.
-        </p>
-
-        <div class="mt-4 flex flex-wrap gap-1.5">
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Peach Mango</span>
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Spearmint Pure</span>
-        </div>
+        <div class="text-2xl font-black text-white">$28.00 USD</div>
+        <div class="text-xs text-gray-400 font-medium">$112.000 COP</div>
       </div>
 
-      <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-        <div>
-          <div class="text-2xl font-black text-white">$19.00 USD</div>
-          <div class="text-xs text-gray-400 font-medium">$76.000 COP</div>
-        </div>
-
-        <button onclick="openQuickView('Slim 13000 Pocket Edition','19.00','76000',['Peach Mango','Spearmint Pure']);"
-                class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-          <span>Pedir</span>
-          <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </button>
-      </div>
+      <button onclick="openQuickView('Click 30000','28.00','112000',['Grape Ice','Mango Blast']);"
+              class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5">
+        <span>Pedir</span>
+        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+      </button>
     </div>
+  </div>
 
-    <!-- Producto 5 -->
-    <div class="bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up">
-      <div>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
-          <span>Nicotine Salt</span>
-          <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">30 ml / 50 mg</span>
-        </div>
 
-        <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
-          <div class="text-center">
-            <i class="fa-solid fa-bottle-droplet text-5xl text-gray-400 mb-2"></i>
-            <div class="text-[11px] text-gray-500 font-mono tracking-widest">PURE SALT 50MG IMPORTADO</div>
-          </div>
-        </div>
+  <!-- STREET WEAR (vacío por ahora) -->
+  <div class="product-card bg-[#111317]/60 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col items-center justify-center text-center fade-up"
+       data-category="street">
 
-        <h3 class="text-xl font-bold uppercase tracking-wide text-white">Flavor Salts Premium 30ml</h3>
-        <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-          Líquidos formulados para kits pod recargables con pureza de laboratorio farmacéutico. Golpe suave y sabor puro.
-        </p>
+    <i class="fa-solid fa-shirt text-5xl text-gray-500 mb-4"></i>
 
-        <div class="mt-4 flex flex-wrap gap-1.5">
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Menthol Blast</span>
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Vanilla Custard</span>
-        </div>
-      </div>
+    <h3 class="text-xl font-bold uppercase tracking-wide text-white">Street Wear</h3>
+    <p class="text-xs text-gray-400 mt-2 leading-relaxed max-w-[220px]">
+      Próximamente: gorras, hoodies, camisetas y accesorios exclusivos Das Smok Shop.
+    </p>
 
-      <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-        <div>
-          <div class="text-2xl font-black text-white">$15.00 USD</div>
-          <div class="text-xs text-gray-400 font-medium">$60.000 COP</div>
-        </div>
+  </div>
 
-        <button onclick="openQuickView('Flavor Salts Premium 30ml','15.00','60000',['Menthol Blast','Vanilla Custard']);"
-                class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-          <span>Pedir</span>
-          <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </button>
-      </div>
-    </div>
+</div>
 
-    <!-- Producto 6 -->
-    <div class="bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up">
-      <div>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
-          <span>Pack 3 Unidades</span>
-          <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">0.8Ω / 1.0Ω</span>
-        </div>
-
-        <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
-          <div class="text-center">
-            <i class="fa-solid fa-boxes-stacked text-5xl text-gray-400 mb-2"></i>
-            <div class="text-[11px] text-gray-500 font-mono tracking-widest">COILS INTEGRADAS ANTI-LEAK</div>
-          </div>
-        </div>
-
-        <h3 class="text-xl font-bold uppercase tracking-wide text-white">Cartuchos Pod Pack (x3)</h3>
-        <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-          Pack de cartuchos originales de reemplazo con resistencia de malla dual de larga vida útil.
-        </p>
-
-        <div class="mt-4 flex flex-wrap gap-1.5">
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Resistencia 0.8 Ohm</span>
-          <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Resistencia 1.0 Ohm</span>
-        </div>
-      </div>
-
-      <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-        <div>
-          <div class="text-2xl font-black text-white">$12.00 USD</div>
-          <div class="text-xs text-gray-400 font-medium">$48.000 COP</div>
-        </div>
-
-        <button onclick="openQuickView('Cartuchos Pod Pack (x3)','12.00','48000',['Resistencia 0.8 Ohm','Resistencia 1.0 Ohm']);"
-                class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-          <span>Pedir</span>
-          <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </button>
-      </div>
-    </div>
   </div> <!-- cierre del grid de productos -->
 
 </section> <!-- cierre del catálogo -->
@@ -1102,7 +1021,55 @@ function confirmWhatsappOrder() {
 document.getElementById('quickViewModal').addEventListener('click', (e) => {
   if (e.target.id === 'quickViewModal') closeQuickView();
 });
+
+/* ================================
+   FILTRO DE CATÁLOGO
+================================ */
+
+const filterButtons = document.querySelectorAll('.filter-btn');
+const productCards = document.querySelectorAll('.product-card');
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+
+    // Quitar estado activo de todos
+    filterButtons.forEach(b => {
+      b.classList.remove('bg-white', 'text-black', 'font-bold');
+      b.classList.add('bg-white/5', 'text-gray-300');
+    });
+
+    // Activar el botón seleccionado
+    btn.classList.add('bg-white', 'text-black', 'font-bold');
+    btn.classList.remove('bg-white/5', 'text-gray-300');
+
+    const filter = btn.dataset.filter;
+
+    productCards.forEach(card => {
+      const category = card.dataset.category;
+
+      // Mostrar/Ocultar con animación suave
+      if (filter === 'todos' || filter === category) {
+        card.style.display = 'flex';
+        card.style.opacity = '0';
+        setTimeout(() => {
+          card.style.opacity = '1';
+        }, 50);
+      } else {
+        card.style.opacity = '1';
+        setTimeout(() => {
+          card.style.opacity = '0';
+        }, 50);
+        setTimeout(() => {
+          card.style.display = 'none';
+        }, 200);
+      }
+    });
+
+  });
+});
+
 </script>
 
 </body>
 </html>
+
