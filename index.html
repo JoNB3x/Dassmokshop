@@ -143,6 +143,20 @@ body {
 .header-glow:hover {
   box-shadow: 0 0 35px rgba(255,255,255,0.12);
 }
+
+/* Animación suave para filtrado */
+.product-card {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.product-card.hide {
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+}
+
 </style>
 </head>
 
@@ -445,30 +459,27 @@ body {
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
   <!-- Producto 1: LitPod 15000 (Desechable) -->
-  <div class="product-card bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up"
-       data-category="desechables">
+<div class="product-card bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up"
+     data-category="desechables">
 
-    <div>
-      <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
-        <span>15,000 Puffs</span>
-        <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">Top Seller</span>
-      </div>
+  <div>
+    <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
+      <span>15,000 Puffs</span>
+      <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">Top Seller</span>
+    </div>
 
-      <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
-        <div class="text-center">
-          <i class="fa-solid fa-mobile-screen-button text-5xl text-gray-400 mb-2"></i>
-          <div class="text-[11px] text-gray-500 font-mono tracking-widest">OLED DISPLAY DUAL MESH</div>
-        </div>
-      </div>
+    <!-- IMAGEN REAL DEL PRODUCTO -->
+    <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center overflow-hidden mb-6 border border-white/5">
+      <img src="assets/img/litpod15000.png"
+           alt="LitPod 15000 Puffs"
+           class="w-full h-full object-contain p-2"/>
+    </div>
 
-      <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center overflow-hidden mb-6 border border-white/5">
-        <img src="assets/img/16.png" alt="LitPod 15000 Puffs" class="w-full h-full object-contain p-2"/>
-      </div>
+    <h3 class="text-xl font-bold uppercase tracking-wide text-white">LitPod 15000 Puffs Dual Mesh</h3>
+    <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+      Pantalla OLED inteligente integrada con indicador de nivel de líquido y batería. Potencia dual regulable.
+    </p>
 
-      <h3 class="text-xl font-bold uppercase tracking-wide text-white">LitPod 15000 Puffs Dual Mesh</h3>
-      <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-        Pantalla OLED inteligente integrada con indicador de nivel de líquido y batería. Potencia dual regulable.
-      </p>
 
       <div class="mt-4 flex flex-wrap gap-1.5">
         <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Watermelon Ice</span>
@@ -478,17 +489,18 @@ body {
     </div>
 
     <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-      <div>
-        <div class="text-2xl font-black text-white">$22.00 USD</div>
-        <div class="text-xs text-gray-400 font-medium">$88.000 COP</div>
-      </div>
+  <div>
+    <div class="text-2xl font-black text-white">$85.000 </div>
+    <div class="text-xs text-gray-400 font-medium">$25.00 </div>
+  </div>
 
-      <button onclick="openQuickView('LitPod 15000 Puffs Dual Mesh','22.00','88000',['Watermelon Ice','Miami Mint','Blue Razz']);"
-              class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-        <span>Pedir</span>
-        <i class="fa-solid fa-arrow-right text-[10px]"></i>
-      </button>
-    </div>
+  <button onclick="openQuickView('LitPod 15000 Puffs Dual Mesh','85.000','25.00',['Watermelon Ice','Miami Mint','Blue Razz']);"
+          class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+    <span>Pedir</span>
+    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+  </button>
+</div>
+
   </div>
 
 
@@ -1023,7 +1035,7 @@ document.getElementById('quickViewModal').addEventListener('click', (e) => {
 });
 
 /* ================================
-   FILTRO DE CATÁLOGO
+   FILTRO DE CATÁLOGO (versión suave)
 ================================ */
 
 const filterButtons = document.querySelectorAll('.filter-btn');
@@ -1047,29 +1059,26 @@ filterButtons.forEach(btn => {
     productCards.forEach(card => {
       const category = card.dataset.category;
 
-      // Mostrar/Ocultar con animación suave
       if (filter === 'todos' || filter === category) {
-        card.style.display = 'flex';
-        card.style.opacity = '0';
+        // Mostrar con animación suave
+        card.classList.remove('hide');
         setTimeout(() => {
-          card.style.opacity = '1';
-        }, 50);
+          card.style.display = 'flex';
+        }, 10);
       } else {
-        card.style.opacity = '1';
-        setTimeout(() => {
-          card.style.opacity = '0';
-        }, 50);
+        // Ocultar con animación suave
+        card.classList.add('hide');
         setTimeout(() => {
           card.style.display = 'none';
-        }, 200);
+        }, 250); // coincide con el CSS
       }
     });
 
   });
 });
 
+
 </script>
 
 </body>
 </html>
-
