@@ -1,1084 +1,1226 @@
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="es">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Das Smoke Shop | Oficial — (+18)</title>
-
-<!-- Meta -->
-<meta content="Das Smoke Shop - Equipos de vapeo, LitPods, Esencias y accesorios con entrega rápida y segura." name="description"/>
-<meta content="#0b0914" name="theme-color"/>
-
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
-
-<!-- Tailwind Config -->
-<script>
-tailwind.config = {
-  darkMode: 'class',
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Space Grotesk', 'Montserrat', 'sans-serif'],
-        heading: ['Space Grotesk', 'sans-serif'],
-      },
-      colors: {
-        dark: '#0c0e12',
-        surface: '#111317',
-        card: '#16191f',
+  <head></head>
+  <body class="relative min-h-screen bg-[#0c0e12] text-white selection:bg-white selection:text-black">
+    html
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Das Smok Shop | Oficial — (+18)</title>
+    <!-- Meta -->
+    <meta
+      content="Das Smok Shop - Equipos de vapeo, LitPods, Esencias, Street Wear y accesorios con entrega rápida y segura."
+      name="description"
+    />
+    <meta content="#0c0e12" name="theme-color" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Space Grotesk", "Montserrat", "sans-serif"],
+              heading: ["Space Grotesk", "sans-serif"],
+            },
+            colors: { dark: "#0c0e12", surface: "#111317", card: "#16191f" },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Reset & Base */
+      * {
+        box-sizing: border-box;
       }
-    }
-  }
-}
-</script>
-
-<style>
-/* Reset */
-* { box-sizing: border-box; }
-body {
-  font-family: 'Space Grotesk', 'Montserrat', sans-serif;
-  background-color: #0c0e12;
-  color: #ffffff;
-  overflow-x: hidden;
-}
-
-/* Age Gate Gradient */
-.animated-gate-bg {
-  background: linear-gradient(125deg, #0b0914, #16122c, #0a1c18, #12091c);
-  background-size: 400% 400%;
-  animation: gradientMovement 12s ease infinite;
-}
-@keyframes gradientMovement {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Glow Pulse */
-@keyframes pulse-glow {
-  0% { box-shadow: 0 0 10px rgba(255,255,255,0.2); }
-  50% { box-shadow: 0 0 25px rgba(255,255,255,0.45); }
-  100% { box-shadow: 0 0 10px rgba(255,255,255,0.2); }
-}
-.pulse { animation: pulse-glow 3s infinite ease-in-out; }
-
-/* Fade Animations */
-.fade-up {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1);
-}
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.fade-in {
-  opacity: 0;
-  transition: opacity .9s cubic-bezier(0.16,1,0.3,1);
-}
-.fade-in.show { opacity: 1; }
-
-/* Card Hover Zoom */
-.card-zoom {
-  transition: transform .35s cubic-bezier(0.16,1,0.3,1), box-shadow .35s ease, border-color .35s ease;
-}
-.card-zoom:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(255,255,255,0.6);
-  box-shadow: 0 12px 30px -10px rgba(255,255,255,0.15);
-}
-
-/* Age Gate Transition */
-#ageGate {
-  transition: opacity .7s cubic-bezier(0.4,0,0.2,1), visibility .7s cubic-bezier(0.4,0,0.2,1);
-}
-#ageGate.hidden-gate {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0c0e12; }
-::-webkit-scrollbar-thumb { background: #2a2e39; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #4a5061; }
-
-/* TOPBAR — Glow + Subrayado animado */
-.nav-link {
-  position: relative;
-  padding: 6px 2px;
-  transition: all .25s ease;
-}
-.nav-link:hover {
-  color: #fff;
-  text-shadow: 0 0 8px rgba(255,255,255,0.6);
-}
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0%;
-  height: 2px;
-  background: rgba(255,255,255,0.8);
-  border-radius: 2px;
-  transition: width .25s ease;
-}
-.nav-link:hover::after { width: 100%; }
-
-/* Header Glow */
-.header-glow {
-  box-shadow: 0 0 25px rgba(255,255,255,0.05);
-  transition: box-shadow .3s ease;
-}
-.header-glow:hover {
-  box-shadow: 0 0 35px rgba(255,255,255,0.12);
-}
-
-/* Animación suave para filtrado */
-.product-card {
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  opacity: 1;
-  transform: translateY(0px);
-}
-
-.product-card.hide {
-  opacity: 0;
-  transform: translateY(4px);
-  pointer-events: none;
-}
-
-</style>
-</head>
-
-<body class="relative min-h-screen bg-[#0c0e12] text-white selection:bg-white selection:text-black">
-<!-- ========================================== -->
-<!-- 1. AGE GATE (+18 VERIFICACIÓN DE EDAD) -->
-<!-- ========================================== -->
-<div class="fixed inset-0 z-[100] flex items-center justify-center p-4 animated-gate-bg overflow-y-auto" id="ageGate">
-  <div class="relative w-full max-w-lg bg-[#111317]/95 border border-white/20 backdrop-blur-2xl rounded-2xl p-8 sm:p-10 shadow-[0_0_50px_rgba(0,0,0,0.8)] text-center my-auto">
-
-    <!-- Badge Legal -->
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-gray-300 uppercase mb-6">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-      Verificación de Edad Legal (+18)
-    </div>
-
-    <!-- Logo -->
-    <div class="flex justify-center mb-6">
-      <img src="assets/img/LOGO-SMOKE-PNG.png" alt="Das Smoke Shop Logo"
-           class="w-32 h-32 sm:w-36 sm:h-36 object-contain filter drop-shadow-[0_0_20px_rgba(255,255,255,0.25)] rounded-2xl"/>
-    </div>
-
-    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight uppercase mb-2">Age Verification</h2>
-    <p class="text-sm text-gray-400 mb-6 leading-relaxed">
-      Debes ser mayor de 18 años para ingresar a la tienda y explorar nuestro catálogo exclusivo de vapeo.
-    </p>
-
-    <!-- Formulario -->
-    <form id="ageGateForm" class="space-y-4 text-left" onsubmit="event.preventDefault(); verifyAge();">
-      <div>
-        <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">
-          Ingresa tu fecha de nacimiento
-        </label>
-
-        <div class="grid grid-cols-3 gap-2">
-          <!-- Día -->
-          <select id="birthDay" required
-                  class="w-full bg-[#1a1c22] border border-white/20 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-white transition">
-            <option value="" disabled selected>Día</option>
-            <script>
-              for(let i=1; i<=31; i++) {
-                document.write(`<option value="${i}">${i}</option>`);
-              }
-            </script>
-          </select>
-
-          <!-- Mes -->
-          <select id="birthMonth" required
-                  class="w-full bg-[#1a1c22] border border-white/20 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-white transition">
-            <option value="" disabled selected>Mes</option>
-            <option value="1">Enero</option><option value="2">Febrero</option>
-            <option value="3">Marzo</option><option value="4">Abril</option>
-            <option value="5">Mayo</option><option value="6">Junio</option>
-            <option value="7">Julio</option><option value="8">Agosto</option>
-            <option value="9">Septiembre</option><option value="10">Octubre</option>
-            <option value="11">Noviembre</option><option value="12">Diciembre</option>
-          </select>
-
-          <!-- Año -->
-          <input id="birthYear" type="number" required min="1925" max="2007"
-                 placeholder="Año (e.g. 2000)"
-                 class="w-full bg-[#1a1c22] border border-white/20 rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition"/>
-        </div>
-
-        <span class="block text-[15px] text-gray-500 mt-1">
-          <i class="fa-solid fa-circle-info mr-1"></i> Productos No disponibles para Venezuela.
-        </span>
-      </div>
-
-      <!-- Error -->
-      <div id="ageErrorMsg"
-           class="hidden p-3 rounded-lg bg-red-950/80 border border-red-500/50 text-red-200 text-xs flex items-center gap-2">
-        <i class="fa-solid fa-triangle-exclamation text-red-400"></i>
-        <span>Debes tener al menos 18 años para acceder a este sitio. Acceso restringido.</span>
-      </div>
-
-      <!-- Recordar -->
-      <div class="flex items-center gap-2 pt-1">
-        <input id="rememberMe" type="checkbox"
-               class="w-4 h-4 rounded bg-[#1a1c22] border-white/30 text-white focus:ring-0"/>
-        <label for="rememberMe" class="text-xs text-gray-400 cursor-pointer">Recordar mi verificación</label>
-      </div>
-
-      <!-- Botones -->
-      <div class="pt-3 space-y-2">
-        <button type="submit"
-                class="w-full bg-white hover:bg-gray-200 text-black font-bold uppercase tracking-wider py-3.5 rounded-lg text-sm transition-all duration-200 transform hover:scale-[1.01] shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2">
-          <span>INGRESAR (+18)</span>
-          <i class="fa-solid fa-arrow-right text-xs"></i>
-        </button>
-
-        <button type="button" onclick="exitUnderage();"
-                class="w-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white text-xs font-semibold py-2.5 rounded-lg transition">
-          Soy menor de 18 años / Salir
-        </button>
-      </div>
-    </form>
-
-    <!-- Pie -->
-    <div class="mt-6 pt-5 border-t border-white/10 flex items-center justify-between text-[15px] text-gray-500">
-      <span><i class="fa-solid fa-shield-halved mr-1"></i> Adultos únicamente</span>
-      <span><i class="fa-solid fa-circle-check mr-1"></i> Uso Responsable</span>
-    </div>
-  </div>
-</div>
-
-<!-- Botón flotante Age Gate -->
-<button onclick="openAgeGate();"
-        class="fixed bottom-4 right-4 z-40 bg-black/80 hover:bg-black text-gray-400 hover:text-white text-xs px-3 py-2 rounded-full border border-white/20 backdrop-blur-md transition flex items-center gap-2 shadow-lg"
-        title="Probar verificación de edad">
-  <span class="w-2 h-2 rounded-full bg-white/60 animate-pulse"></span>
-  <span>Modo Prueba: Age Gate (+18)</span>
-</button>
-
-<!-- ========================================== -->
-<!-- 2. VIDEO DE FONDO -->
-<!-- ========================================== -->
-<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-
-  <video id="bgVideo" autoplay loop muted playsinline preload="auto"
-         class="absolute inset-0 w-full h-full object-cover opacity-35 filter brightness-75 contrast-125">
-    <source src="https://raw.githubusercontent.com/JoNB3x/jmedranoa/main/assets/img/videolclouds.webm" type="video/webm"/>
-    <source src="https://assets.mixkit.co/videos/preview/mixkit-smoke-moving-on-a-black-background-40767-large.mp4" type="video/mp4"/>
-  </video>
-
-  <div class="absolute inset-0 bg-gradient-to-b from-[#0c0e12]/80 via-[#0c0e12]/60 to-[#0c0e12]/95 backdrop-blur-[2px]"></div>
-</div>
-
-<!-- LOGO GIGANTE DE FONDO (ENCIMA DEL HUMO, DEBAJO DEL CONTENIDO) -->
-<div class="fixed inset-0 -z-[5] flex items-center justify-center pointer-events-none">
-  <img src="assets/img/LOGO-SMOKE-PNG.png"
-       alt="Logo Das Smok Shop"
-       class="w-[60vw] max-w-[600px] opacity-[0.06] object-contain select-none">
-</div>
-
-
-<!-- ========================================== -->
-<!-- 3. TOP NAVIGATION BAR (OPTIMIZADO) -->
-<!-- ========================================== -->
-<header class="header-glow fixed top-0 left-0 w-full bg-[#0c0e12]/85 backdrop-blur-md z-40 border-b border-white/10 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-
-    <!-- Logo -->
-    <a href="#" class="flex items-center gap-3 group">
-      <div class="w-11 h-11 rounded-xl bg-white/5 border border-white/20 flex items-center justify-center overflow-hidden p-1 group-hover:border-white transition">
-        <img src="assets/img/LOGO-SMOKE-PNG.png" class="w-full h-full object-contain"/>
-      </div>
-
-      <div class="flex flex-col">
-        <span class="font-extrabold text-lg tracking-wider uppercase text-white group-hover:text-gray-200 transition">
-          DAS SMOK SHOP
-        </span>
-        <span class="text-[15px] tracking-widest text-gray-400 uppercase">Boost Your Breathing & Salts</span>
-      </div>
-    </a>
-
-    <!-- Links -->
-    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-      <a href="#catalogo" class="nav-link">Catálogo</a>
-      <a href="#pagos" class="nav-link">Métodos de Pago</a>
-      <a href="#comprar" class="nav-link">Cómo Comprar</a>
-      <a href="#contacto" class="nav-link">Contacto VIP</a>
-    </nav>
-
-    <!-- Botones -->
-    <div class="flex items-center gap-3">
-      <a href="https://www.instagram.com/dassmokshop/" target="_blank"
-         class="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white transition">
-        <i class="fa-brands fa-instagram text-base"></i>
-      </a>
-
-      <a href="#catalogo"
-         class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase transition shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-        Explorar Catálogo
-      </a>
-    </div>
-
-  </div>
-</header>
-<!-- ========================================== -->
-<!-- 4. HERO SECTION -->
-<!-- ========================================== -->
-<section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center px-4 sm:px-6">
-  <div class="max-w-4xl mx-auto text-center z-10 fade-up">
-
-    <!-- Badge Superior -->
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 backdrop-blur-md mb-8">
-      <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
-      <span class="text-xs font-semibold uppercase tracking-widest text-gray-300">
-        Disponibilidad Inmediata & Despacho Express
-      </span>
-    </div>
-
-    <!-- Título Principal -->
-    <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-white mb-6 leading-none">
-      Vapeo de Vanguardia <br class="hidden sm:inline"/>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-500">
-        BOOST YOUR BREATHING
-      </span>
-    </h1>
-
-    <!-- Descripción -->
-    <p class="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
-      Accesorios, Desechables de alta autonomía, StreetWear y sales de nicotina con entrega personalizada en Colombia e internacional.
-    </p>
-
-    <!-- Botones -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-
-      <!-- Ver dispositivos -->
-      <a href="#catalogo"
-         class="w-full sm:w-auto bg-white hover:bg-gray-200 text-black font-extrabold uppercase tracking-wider text-sm px-8 py-4 rounded-xl shadow-[0_0_25px_rgba(255,255,255,0.35)] transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2 pulse">
-        <span>Ver Dispositivos</span>
-        <i class="fa-solid fa-arrow-down text-xs"></i>
-      </a>
-
-      <!-- WhatsApp -->
-      <a href="https://wa.me/573023259916?text=Hola%20Das%20Smoke%20Shop,%20deseo%20información%20sobre%20los%20dispositivos%20disponibles"
-         target="_blank" rel="noopener noreferrer"
-         class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white border border-white/20 font-bold uppercase tracking-wider text-sm px-8 py-4 rounded-xl backdrop-blur-md transition flex items-center justify-center gap-2">
-        <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i>
-        <span>Asesoría</span>
-      </a>
-
-    </div>
-
-    <!-- Métodos rápidos -->
-<div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
-
-  <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm card-zoom">
-    <div class="text-sm text-gray-300 uppercase tracking-wider font-semibold">Pagos Locales</div>
-    <div class="text-base font-bold text-white mt-1">Nequi & Bancolombia</div>
-  </div>
-
-  <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm card-zoom">
-    <div class="text-sm text-gray-300 uppercase tracking-wider font-semibold">Cripto & USD</div>
-    <div class="text-base font-bold text-white mt-1">Binance / Wally / Zelle</div>
-  </div>
-
-  <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm card-zoom">
-    <div class="text-sm text-gray-300 uppercase tracking-wider font-semibold">Doble Divisa</div>
-    <div class="text-base font-bold text-white mt-1">Precios COP / USD</div>
-  </div>
-
-  <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm card-zoom">
-    <div class="text-sm text-gray-300 uppercase tracking-wider font-semibold">Despacho</div>
-    <div class="text-base font-bold text-white mt-1">Express Motorizado</div>
-  </div>
-
-</div>
-
-
-    </div>
-
-  </div>
-</section>
-<!-- ========================================== -->
-<!-- 5. CATÁLOGO DE PRODUCTOS (USD & COP) -->
-<!-- ========================================== -->
-<section id="catalogo" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
-
-  <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 fade-up">
-    <div>
-      <span class="text-xs font-bold uppercase tracking-widest text-gray-400">// Equipos & Líquidos Certificados</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mt-2">
-        Catálogo Das Smok Shop
-      </h2>
-    </div>
-
-    <!-- Filtros -->
-<div id="catalogFilters" class="flex flex-wrap gap-2 mt-4 md:mt-0 text-xs">
-
-  <!-- TODOS (activo por defecto) -->
-  <button
-    data-filter="todos"
-    class="filter-btn px-4 py-2 rounded-lg bg-white text-black font-bold uppercase tracking-wider transition">
-    Todos
-  </button>
-
-  <!-- DESECHABLES -->
-  <button
-    data-filter="desechables"
-    class="filter-btn px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 uppercase tracking-wider transition">
-    Desechables Smart
-  </button>
-
-  <!-- STREET WEAR (nuevo) -->
-  <button
-    data-filter="street"
-    class="filter-btn px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 uppercase tracking-wider transition">
-    Street Wear
-  </button>
-
-</div>
-
-
-  </div>
-
-  <!-- GRID -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-  <!-- Producto 1: LitPod 15000 (Desechable) -->
-<div class="product-card bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up"
-     data-category="desechables">
-
-  <div>
-    <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
-      <span>15,000 Puffs</span>
-      <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">Top Seller</span>
-    </div>
-
-    <!-- IMAGEN REAL DEL PRODUCTO -->
-    <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center overflow-hidden mb-6 border border-white/5">
-      <img src="assets/img/litpod15000.png"
-           alt="LitPod 15000 Puffs"
-           class="w-full h-full object-contain p-2"/>
-    </div>
-
-    <h3 class="text-xl font-bold uppercase tracking-wide text-white">LitPod 15000 Puffs Dual Mesh</h3>
-    <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-      Pantalla OLED inteligente integrada con indicador de nivel de líquido y batería. Potencia dual regulable.
-    </p>
-
-
-      <div class="mt-4 flex flex-wrap gap-1.5">
-        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Watermelon Ice</span>
-        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Miami Mint</span>
-        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Blue Razz</span>
-      </div>
-    </div>
-
-    <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-  <div>
-    <div class="text-2xl font-black text-white">$85.000 </div>
-    <div class="text-xs text-gray-400 font-medium">$25.00 </div>
-  </div>
-
-  <button onclick="openQuickView('LitPod 15000 Puffs Dual Mesh','85.000','25.00',['Watermelon Ice','Miami Mint','Blue Razz']);"
-          class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-    <span>Pedir</span>
-    <i class="fa-solid fa-arrow-right text-[10px]"></i>
-  </button>
-</div>
-
-  </div>
-
-
-  <!-- Producto 2: Kit Switch 5000 (Desechable) -->
-  <div class="product-card bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up"
-       data-category="desechables">
-
-    <div>
-      <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
-        <span>5,000 Puffs</span>
-        <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">New</span>
-      </div>
-
-      <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
-        <i class="fa-solid fa-bolt text-5xl text-gray-400"></i>
-      </div>
-
-      <h3 class="text-xl font-bold uppercase tracking-wide text-white">Kit Switch 5000</h3>
-      <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-        Dispositivo compacto con excelente autonomía y sabores intensos.
-      </p>
-
-      <div class="mt-4 flex flex-wrap gap-1.5">
-        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Strawberry Ice</span>
-        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Cool Mint</span>
-      </div>
-    </div>
-
-    <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-      <div>
-        <div class="text-2xl font-black text-white">$14.00 USD</div>
-        <div class="text-xs text-gray-400 font-medium">$56.000 COP</div>
-      </div>
-
-      <button onclick="openQuickView('Kit Switch 5000','14.00','56000',['Strawberry Ice','Cool Mint']);"
-              class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5">
-        <span>Pedir</span>
-        <i class="fa-solid fa-arrow-right text-[10px]"></i>
-      </button>
-    </div>
-  </div>
-
-
-  <!-- Producto 3: Click 30000 (Desechable) -->
-  <div class="product-card bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up"
-       data-category="desechables">
-
-    <div>
-      <div class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider">
-        <span>30,000 Puffs</span>
-        <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">Mega Puff</span>
-      </div>
-
-      <div class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5">
-        <i class="fa-solid fa-cloud text-5xl text-gray-400"></i>
-      </div>
-
-      <h3 class="text-xl font-bold uppercase tracking-wide text-white">Click 30000</h3>
-      <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-        Autonomía extrema con sabores premium y rendimiento constante.
-      </p>
-
-      <div class="mt-4 flex flex-wrap gap-1.5">
-        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Grape Ice</span>
-        <span class="text-[10px] px-2 py-1 bg-white/5 border border-white/10 rounded text-gray-300">Mango Blast</span>
-      </div>
-    </div>
-
-    <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-      <div>
-        <div class="text-2xl font-black text-white">$28.00 USD</div>
-        <div class="text-xs text-gray-400 font-medium">$112.000 COP</div>
-      </div>
-
-      <button onclick="openQuickView('Click 30000','28.00','112000',['Grape Ice','Mango Blast']);"
-              class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5">
-        <span>Pedir</span>
-        <i class="fa-solid fa-arrow-right text-[10px]"></i>
-      </button>
-    </div>
-  </div>
-
-
-  <!-- STREET WEAR (vacío por ahora) -->
-  <div class="product-card bg-[#111317]/60 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col items-center justify-center text-center fade-up"
-       data-category="street">
-
-    <i class="fa-solid fa-shirt text-5xl text-gray-500 mb-4"></i>
-
-    <h3 class="text-xl font-bold uppercase tracking-wide text-white">Street Wear</h3>
-    <p class="text-xs text-gray-400 mt-2 leading-relaxed max-w-[220px]">
-      Próximamente: gorras, hoodies, camisetas y accesorios exclusivos Das Smok Shop.
-    </p>
-
-  </div>
-
-</div>
-
-  </div> <!-- cierre del grid de productos -->
-
-</section> <!-- cierre del catálogo -->
-<!-- ========================================== -->
-<!-- 6. MÉTODOS DE PAGO Y PASOS DE COMPRA -->
-<!-- ========================================== -->
-<section id="pagos" class="py-20 bg-black/40 border-y border-white/10 relative">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
-      <span class="text-xs font-bold uppercase tracking-widest text-gray-400">// Transacciones Seguras & Múltiples Monedas</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mt-2">
-        Métodos de Pago Aceptados
-      </h2>
-      <p class="text-sm text-gray-400 mt-3">
-        Procesamos pagos en Pesos Colombianos (COP) mediante transferencias inmediatas y en Dólares (USD) a través de billeteras globales y efectivo contra entrega.
-      </p>
-    </div>
-
-    <!-- Tarjetas de Pago -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-
-      <!-- Nequi & Bancolombia -->
-      <div class="bg-[#111317] border border-white/10 rounded-2xl p-6 card-zoom fade-up text-center">
-        <div class="w-12 h-12 mx-auto rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white text-xl mb-4">
-          <i class="fa-solid fa-building-columns"></i>
-        </div>
-        <h4 class="font-bold text-base uppercase text-white">Nequi & Bancolombia</h4>
-        <p class="text-xs text-gray-400 mt-2">Transferencias en COP inmediatas por app o código QR directo.</p>
-        <span class="inline-block mt-4 text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">COP Inmediato</span>
-      </div>
-
-      <!-- Daviplata -->
-      <div class="bg-[#111317] border border-white/10 rounded-2xl p-6 card-zoom fade-up text-center">
-        <div class="w-12 h-12 mx-auto rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white text-xl mb-4">
-          <i class="fa-solid fa-mobile-screen"></i>
-        </div>
-        <h4 class="font-bold text-base uppercase text-white">Daviplata</h4>
-        <p class="text-xs text-gray-400 mt-2">Pago móvil en COP rápido y seguro desde cualquier número.</p>
-        <span class="inline-block mt-4 text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">COP al instante</span>
-      </div>
-
-      <!-- Binance Pay -->
-      <div class="bg-[#111317] border border-white/10 rounded-2xl p-6 card-zoom fade-up text-center">
-        <div class="w-12 h-12 mx-auto rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white text-xl mb-4">
-          <i class="fa-brands fa-bitcoin"></i>
-        </div>
-        <h4 class="font-bold text-base uppercase text-white">Binance Pay</h4>
-        <p class="text-xs text-gray-400 mt-2">USDT sin comisión y escaneo QR inmediato en cripto.</p>
-        <span class="inline-block mt-4 text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">0% Comisión USDT</span>
-      </div>
-
-      <!-- Zelle / Wally -->
-      <div class="bg-[#111317] border border-white/10 rounded-2xl p-6 card-zoom fade-up text-center">
-        <div class="w-12 h-12 mx-auto rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white text-xl mb-4">
-          <i class="fa-solid fa-dollar-sign"></i>
-        </div>
-        <h4 class="font-bold text-base uppercase text-white">Zelle / Wally</h4>
-        <p class="text-xs text-gray-400 mt-2">Transferencias bancarias directas en USD para clientes internacionales.</p>
-        <span class="inline-block mt-4 text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">USD Directo</span>
-      </div>
-
-      <!-- Efectivo -->
-      <div class="bg-[#111317] border border-white/10 rounded-2xl p-6 card-zoom fade-up text-center">
-        <div class="w-12 h-12 mx-auto rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white text-xl mb-4">
-          <i class="fa-solid fa-handshake"></i>
-        </div>
-        <h4 class="font-bold text-base uppercase text-white">Efectivo</h4>
-        <p class="text-xs text-gray-400 mt-2">Pago exacto al momento de la entrega personal o Pick-Up.</p>
-        <span class="inline-block mt-4 text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">Contra Entrega</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ========================================== -->
-<!-- 7. CÓMO COMPRAR (PASOS SENCILLOS) -->
-<!-- ========================================== -->
-<section id="comprar" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-
-  <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
-    <span class="text-xs font-bold uppercase tracking-widest text-gray-400">// Pasos Sencillos</span>
-    <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mt-2">
-      ¿Cómo Comprar en Das Smok Shop?
-    </h2>
-    <p class="text-sm text-gray-400 mt-2">Tu pedido directo a tus manos o listo para retirar en solo 3 pasos simples.</p>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-    <!-- Paso 1 -->
-    <div class="bg-[#111317] border border-white/10 rounded-2xl p-8 relative card-zoom fade-up">
-      <span class="absolute top-6 right-6 text-4xl font-black text-white/10">01</span>
-      <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/20 flex items-center justify-center text-white text-xl mb-6">
-        <i class="fa-solid fa-bag-shopping"></i>
-      </div>
-      <h3 class="text-xl font-bold uppercase text-white mb-2">Elige tus Productos</h3>
-      <p class="text-xs text-gray-400 leading-relaxed">
-        Revisa nuestro catálogo online, selecciona tus sabores favoritos, dispositivos de alta autonomía o repuestos necesarios.
-      </p>
-    </div>
-
-    <!-- Paso 2 -->
-    <div class="bg-[#111317] border border-white/10 rounded-2xl p-8 relative card-zoom fade-up">
-      <span class="absolute top-6 right-6 text-4xl font-black text-white/10">02</span>
-      <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/20 flex items-center justify-center text-white text-xl mb-6">
-        <i class="fa-solid fa-credit-card"></i>
-      </div>
-      <h3 class="text-xl font-bold uppercase text-white mb-2">Selecciona tu Pago</h3>
-      <p class="text-xs text-gray-400 leading-relaxed">
-        Transfiere vía Nequi, Bancolombia, Daviplata, Binance Pay (USDT), Zelle o abona en efectivo COP / USD al recibir.
-      </p>
-    </div>
-
-    <!-- Paso 3 -->
-    <div class="bg-[#111317] border border-white/10 rounded-2xl p-8 relative card-zoom fade-up">
-      <span class="absolute top-6 right-6 text-4xl font-black text-white/10">03</span>
-      <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/20 flex items-center justify-center text-white text-xl mb-6">
-        <i class="fa-solid fa-bolt"></i>
-      </div>
-      <h3 class="text-xl font-bold uppercase text-white mb-2">Despacho Express</h3>
-      <p class="text-xs text-gray-400 leading-relaxed">
-        Recibe tu orden por delivery motorizado express en minutos, punto de encuentro coordinado o con guía nacional rápida y asegurada.
-      </p>
-    </div>
-
-  </div>
-
-  <!-- Banner Soporte -->
-  <div class="mt-12 bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 fade-up">
-    <div>
-      <span class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Atención Personalizada 24/7</span>
-      <h4 class="text-xl font-bold text-white mt-1">¿Tienes dudas o buscas un sabor específico?</h4>
-      <p class="text-xs text-gray-400 mt-1">Nuestro equipo te atiende de inmediato por el canal de mensajería VIP.</p>
-    </div>
-
-    <a href="https://wa.me/573023259916?text=Hola,%20tengo%20una%20consulta%20sobre%20los%20dispositivos%20en%20Das%20Smoke%20Shop"
-       target="_blank" rel="noopener noreferrer"
-       class="bg-white hover:bg-gray-200 text-black px-6 py-3.5 rounded-xl font-extrabold uppercase tracking-wider text-xs whitespace-nowrap transition shadow-[0_0_20px_rgba(255,255,255,0.25)] flex items-center gap-2">
-      <i class="fa-brands fa-whatsapp text-sm"></i>
-      <span>Chatear con un Asesor</span>
-    </a>
-  </div>
-
-</section>
-<!-- ========================================== -->
-<!-- 8. BANNER MARCA VIP CON ENLACES SOCIALES -->
-<!-- ========================================== -->
-<section id="contacto" class="py-24 border-t border-white/10 bg-black/60 relative">
-  <div class="max-w-4xl mx-auto px-4 text-center fade-up">
-
-    <div class="w-20 h-20 mx-auto rounded-2xl bg-white/5 border border-white/20 p-2 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(255,255,255,0.15)]">
-      <i class="fa-solid fa-crown text-3xl text-white"></i>
-    </div>
-
-    <span class="text-xs uppercase tracking-widest text-gray-400 font-mono">// EXPERIENCIA VIP EXCLUSIVA</span>
-
-    <h2 class="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white mt-3 mb-6">
-      La Nueva Era del Vapeo Premium
-    </h2>
-
-    <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mb-10 leading-relaxed">
-      En <strong class="text-white">Das Smok Shop</strong> combinamos la selección de hardware más vanguardista del mercado global con un servicio boutique privado. Cada pod, dispositivo y esencia cuenta con garantía de autenticidad absoluta y despacho express coordinado al instante.
-    </p>
-
-    <!-- Botones -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-
-      <!-- WhatsApp -->
-      <a href="https://wa.me/573023259916?text=Hola%20Das%20Smoke%20Shop,%20quiero%20hacer%20un%20pedido%20directo"
-         target="_blank" rel="noopener noreferrer"
-         class="w-full sm:w-auto bg-white hover:bg-gray-200 text-black font-extrabold uppercase tracking-wider text-xs px-8 py-4 rounded-xl transition shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2">
-        <i class="fa-brands fa-whatsapp text-base"></i>
-        <span>Atención Inmediata WhatsApp</span>
-      </a>
-
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/dassmokshop/"
-         target="_blank" rel="noopener noreferrer"
-         class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white border border-white/20 font-bold uppercase tracking-wider text-xs px-8 py-4 rounded-xl backdrop-blur-md transition flex items-center justify-center gap-2">
-        <i class="fa-brands fa-instagram text-base"></i>
-        <span>Comunidad Instagram</span>
-      </a>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ========================================== -->
-<!-- 9. FOOTER INFORMATIVO & LEGAL (+18) -->
-<!-- ========================================== -->
-<footer class="bg-[#08090b] border-t border-white/10 py-12 text-xs text-gray-400">
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-
-    <!-- Columna 1 -->
-    <div>
-      <div class="flex items-center gap-2 text-white font-extrabold text-base uppercase tracking-wider mb-3">
-        <i class="fa-solid fa-bolt"></i>
-        <span>DAS SMOK SHOP</span>
-      </div>
-
-      <p class="text-xs text-gray-400 leading-relaxed mb-4">
-        Boutique de vapeo premium, dispositivos de última generación, esencias exclusivas y accesorios con entrega personal rápida y segura.
-      </p>
-
-      <a href="https://www.instagram.com/dassmokshop/" target="_blank"
-         class="text-gray-300 hover:text-white font-mono text-[11px]">@dassmokshop</a>
-    </div>
-
-    <!-- Columna 2 -->
-    <div>
-      <h5 class="text-white font-bold uppercase tracking-wider mb-3">Horario de Atención</h5>
-      <ul class="space-y-1.5 text-xs text-gray-400">
-        <li>Lunes a Sábado: <strong class="text-white">10:00 AM - 8:00 PM</strong></li>
-        <li>Domingos & Feriados: <strong class="text-white">12:00 PM - 6:00 PM</strong></li>
-        <li class="pt-2 text-[11px] text-gray-500">Canal VIP WhatsApp: 24/7 para pedidos programados.</li>
-      </ul>
-    </div>
-
-    <!-- Columna 3 -->
-    <div>
-      <h5 class="text-white font-bold uppercase tracking-wider mb-3">Zonas de Entrega</h5>
-      <ul class="space-y-1.5 text-xs text-gray-400">
-        <li>• Entregas Personales y Pick-Up coordinado.</li>
-        <li>• Envíos Express urbanos motorizados directos a tu ubicación.</li>
-        <li>• Envíos nacionales prioritarios y asegurados con guía activa.</li>
-      </ul>
-    </div>
-
-    <!-- Columna 4 -->
-    <div>
-      <h5 class="text-white font-bold uppercase tracking-wider mb-3">Métodos Aceptados</h5>
-      <div class="flex flex-wrap gap-1.5">
-        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-gray-300">Nequi</span>
-        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-gray-300">Bancolombia</span>
-        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-gray-300">Daviplata</span>
-        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-gray-300">Binance Pay (USDT)</span>
-        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-gray-300">Zelle / USD</span>
-        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-gray-300">Efectivo COP</span>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Advertencia Legal -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-gray-500">
-    <div class="flex items-center gap-2">
-      <i class="fa-solid fa-triangle-exclamation text-amber-400"></i>
-      <span>PROHIBIDA LA VENTA A MENORES DE 18 AÑOS (+18 LEGAL COMPLIANCE)</span>
-    </div>
-    <div>© 2025 Das Smok Shop. Todos los derechos reservados.</div>
-  </div>
-
-</footer>
-
-<!-- ========================================== -->
-<!-- 10. MODAL QUICK VIEW (PEDIDO EXPRESS WHATSAPP) -->
-<!-- ========================================== -->
-<div id="quickViewModal"
-     class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-
-  <div id="modalCard"
-       class="relative w-full max-w-md bg-[#111317] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl transform scale-95 transition-transform duration-300">
-
-    <!-- Cerrar -->
-    <button onclick="closeQuickView();"
-            class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center transition">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-
-    <span class="text-[11px] font-bold uppercase tracking-widest text-gray-400">// Pedido Express</span>
-
-    <h3 id="modalProductTitle" class="text-xl font-bold uppercase tracking-wide text-white mt-1">Nombre Producto</h3>
-
-    <div class="mt-3 flex items-baseline gap-3">
-      <span id="modalProductUsd" class="text-2xl font-black text-white">$0.00 USD</span>
-      <span id="modalProductCop" class="text-xs text-gray-400 font-medium">$0 COP</span>
-    </div>
-
-    <!-- Sabor -->
-    <div class="mt-6">
-      <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Selecciona Sabor / Opción</label>
-      <select id="modalFlavorSelect"
-              class="w-full bg-[#1a1c22] border border-white/20 rounded-lg px-3 py-2.5 text-xs text-white focus:outline-none focus:border-white transition">
-      </select>
-    </div>
-
-    <!-- Cantidad -->
-    <div class="mt-4">
-      <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Cantidad</label>
-      <div class="flex items-center gap-3">
-        <button onclick="adjustQty(-1);"
-                class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-white transition">-</button>
-
-        <span id="modalQty" class="text-sm font-bold text-white px-2 font-mono">1</span>
-
-        <button onclick="adjustQty(1);"
-                class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-white transition">+</button>
-      </div>
-    </div>
-
-    <!-- WhatsApp -->
-    <button onclick="confirmWhatsappOrder();"
-            class="mt-6 w-full bg-white hover:bg-gray-200 text-black font-extrabold uppercase tracking-wider py-3.5 rounded-xl text-xs transition shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2">
-      <i class="fa-brands fa-whatsapp text-base"></i>
-      <span>Completar Pedido por WhatsApp</span>
-    </button>
-
-  </div>
-</div>
-
-<!-- ========================================== -->
-<!-- 11. SCRIPTS DE CONTROL & INTERACCIÓN -->
-<!-- ========================================== -->
-<script>
-let currentProduct = '';
-let currentUsd = '';
-let currentCop = '';
-let quantity = 1;
-
-const WHATSAPP_NUMBER = '573023259916';
-
-function verifyAge() {
-  const year = parseInt(document.getElementById('birthYear').value, 10);
-  const errorMsg = document.getElementById('ageErrorMsg');
-  const remember = document.getElementById('rememberMe').checked;
-
-  if (isNaN(year) || year < 1925 || year > 2007) {
-    errorMsg.classList.remove('hidden');
-    return;
-  }
-
-  errorMsg.classList.add('hidden');
-
-  if (remember) {
-    try { localStorage.setItem('dassmok_age_verified', 'true'); } catch(e) {}
-  }
-
-  const gate = document.getElementById('ageGate');
-  gate.classList.add('hidden-gate');
-
-  playBackgroundVideo();
-}
-
-function exitUnderage() {
-  alert("Acceso restringido: Esta tienda online contiene productos exclusivos para personas mayores de 18 años.");
-  window.location.href = "https://www.google.com";
-}
-
-function openAgeGate() {
-  document.getElementById('ageGate').classList.remove('hidden-gate');
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-  try {
-    if (localStorage.getItem('dassmok_age_verified') === 'true') {
-      document.getElementById('ageGate').classList.add('hidden-gate');
-    }
-  } catch(e) {}
-
-  playBackgroundVideo();
-});
-
-function playBackgroundVideo() {
-  const video = document.getElementById('bgVideo');
-  if (video) {
-    video.play().catch(() => {});
-  }
-}
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('show');
-  });
-}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-
-document.querySelectorAll('.fade-up, .fade-in').forEach(el => observer.observe(el));
-
-function openQuickView(title, usd, cop, flavors) {
-  currentProduct = title;
-  currentUsd = usd;
-  currentCop = cop;
-  quantity = 1;
-
-  document.getElementById('modalProductTitle').innerText = title;
-  document.getElementById('modalProductUsd').innerText = `$${usd} USD`;
-  document.getElementById('modalProductCop').innerText = `$${Number(cop).toLocaleString('es-CO')} COP`;
-  document.getElementById('modalQty').innerText = quantity;
-
-  const select = document.getElementById('modalFlavorSelect');
-  select.innerHTML = '';
-  flavors.forEach(f => {
-    const opt = document.createElement('option');
-    opt.value = f;
-    opt.innerText = f;
-    select.appendChild(opt);
-  });
-
-  const modal = document.getElementById('quickViewModal');
-  const card = document.getElementById('modalCard');
-  modal.classList.remove('opacity-0', 'pointer-events-none');
-  card.classList.remove('scale-95');
-  card.classList.add('scale-100');
-}
-
-function closeQuickView() {
-  const modal = document.getElementById('quickViewModal');
-  const card = document.getElementById('modalCard');
-  modal.classList.add('opacity-0', 'pointer-events-none');
-  card.classList.remove('scale-100');
-  card.classList.add('scale-95');
-}
-
-function adjustQty(amount) {
-  quantity += amount;
-  if (quantity < 1) quantity = 1;
-  document.getElementById('modalQty').innerText = quantity;
-}
-
-function confirmWhatsappOrder() {
-  const flavor = document.getElementById('modalFlavorSelect').value || 'Estándar';
-  const text = `Hola Das Smoke Shop! 👋 Deseo realizar un pedido:%0A%0A*Producto:* ${currentProduct}%0A*Sabor/Variante:* ${flavor}%0A*Cantidad:* ${quantity}%0A*Precio Unitario:* $${currentUsd} USD / $${Number(currentCop).toLocaleString('es-CO')} COP%0A%0A¿Tienen disponibilidad para coordinar el despacho?`;
-
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-  window.open(url, '_blank');
-  closeQuickView();
-}
-
-document.getElementById('quickViewModal').addEventListener('click', (e) => {
-  if (e.target.id === 'quickViewModal') closeQuickView();
-});
-
-/* ================================
-   FILTRO DE CATÁLOGO (versión suave)
-================================ */
-
-const filterButtons = document.querySelectorAll('.filter-btn');
-const productCards = document.querySelectorAll('.product-card');
-
-filterButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-
-    // Quitar estado activo de todos
-    filterButtons.forEach(b => {
-      b.classList.remove('bg-white', 'text-black', 'font-bold');
-      b.classList.add('bg-white/5', 'text-gray-300');
-    });
-
-    // Activar el botón seleccionado
-    btn.classList.add('bg-white', 'text-black', 'font-bold');
-    btn.classList.remove('bg-white/5', 'text-gray-300');
-
-    const filter = btn.dataset.filter;
-
-    productCards.forEach(card => {
-      const category = card.dataset.category;
-
-      if (filter === 'todos' || filter === category) {
-        // Mostrar con animación suave
-        card.classList.remove('hide');
-        setTimeout(() => {
-          card.style.display = 'flex';
-        }, 10);
-      } else {
-        // Ocultar con animación suave
-        card.classList.add('hide');
-        setTimeout(() => {
-          card.style.display = 'none';
-        }, 250); // coincide con el CSS
+      body {
+        font-family: "Space Grotesk", "Montserrat", sans-serif;
+        background-color: #0c0e12;
+        color: #ffffff;
+        overflow-x: hidden;
+      } /* Age Gate Gradient Animado */
+      .animated-gate-bg {
+        background: linear-gradient(125deg, #0b0914, #16122c, #0a1c18, #12091c);
+        background-size: 400% 400%;
+        animation: gradientMovement 12s ease infinite;
       }
-    });
-
-  });
-});
-
-
-</script>
-
-</body>
+      @keyframes gradientMovement {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      } /* Glow Pulse */
+      @keyframes pulse-glow {
+        0% {
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 25px rgba(255, 255, 255, 0.45);
+        }
+        100% {
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+      }
+      .pulse {
+        animation: pulse-glow 3s infinite ease-in-out;
+      } /* Fade Animations */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .fade-up.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .fade-in {
+        opacity: 0;
+        transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .fade-in.show {
+        opacity: 1;
+      } /* Card Hover Zoom */
+      .card-zoom {
+        transition:
+          transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 0.35s ease,
+          border-color 0.35s ease;
+      }
+      .card-zoom:hover {
+        transform: translateY(-6px) scale(1.02);
+        border-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 12px 30px -10px rgba(255, 255, 255, 0.15);
+      } /* Age Gate Transition */
+      #ageGate {
+        transition:
+          opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          visibility 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #ageGate.hidden-gate {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        display: none !important;
+      } /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0c0e12;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2a2e39;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #4a5061;
+      } /* TOPBAR — Glow + Subrayado animado */
+      .nav-link {
+        position: relative;
+        padding: 6px 2px;
+        transition: all 0.25s ease;
+      }
+      .nav-link:hover {
+        color: #fff;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 0%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 2px;
+        transition: width 0.25s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      } /* Header Glow */
+      .header-glow {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+        transition: box-shadow 0.3s ease;
+      }
+      .header-glow:hover {
+        box-shadow: 0 0 35px rgba(255, 255, 255, 0.12);
+      } /* Filtrado suave */
+      .product-card {
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
+        opacity: 1;
+        transform: translateY(0px);
+      }
+      .product-card.hide {
+        opacity: 0;
+        transform: translateY(4px);
+        pointer-events: none;
+      } /* Estilo select nativo modal */
+      #modalFlavorSelect option {
+        background-color: #1a1c22;
+        color: #ffffff;
+        padding: 8px 12px;
+      }
+    </style>
+    <!-- ========================================== -->
+    <!-- 1. AGE GATE (+18 VERIFICACIÓN DE EDAD) -->
+    <!-- ========================================== -->
+    <div
+      class="fixed inset-0 z-[100] flex items-center justify-center p-4 animated-gate-bg overflow-y-auto"
+      id="ageGate"
+    >
+      <div
+        class="relative w-full max-w-lg bg-[#111317]/95 border border-white/20 backdrop-blur-2xl rounded-2xl p-8 sm:p-10 shadow-[0_0_50px_rgba(0,0,0,0.8)] text-center my-auto"
+      >
+        <!-- Badge Legal -->
+        <div
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-gray-200 uppercase mb-6"
+        >
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          Verificación de Edad Legal (+18)
+        </div>
+        <!-- Logo -->
+        <div class="flex justify-center mb-6">
+          <img
+            src="assets/img/LOGO-SMOKE-PNG.png"
+            alt="Das Smok Shop Logo"
+            class="w-32 h-32 sm:w-36 sm:h-36 object-contain filter drop-shadow-[0_0_20px_rgba(255,255,255,0.25)] rounded-2xl"
+          />
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight uppercase mb-2">Age Verification</h2>
+        <p class="text-sm sm:text-base text-gray-300 mb-6 leading-relaxed">
+          Debes ser mayor de 18 años para ingresar a la tienda y explorar nuestro catálogo exclusivo de vapeo.
+        </p>
+        <!-- Formulario -->
+        <form
+          id="ageGateForm"
+          class="space-y-4 text-left"
+          onsubmit="
+            event.preventDefault();
+            verifyAge();
+          "
+        >
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+              Ingresa tu fecha de nacimiento
+            </label>
+            <div class="grid grid-cols-3 gap-2">
+              <!-- Día -->
+              <select
+                id="birthDay"
+                required=""
+                class="w-full bg-[#1a1c22] border border-white/20 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-white transition"
+              >
+                <option value="" disabled="" selected="">Día</option>
+                <script>
+                  for (let i = 1; i <= 31; i++) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                  }
+                </script>
+              </select>
+              <!-- Mes -->
+              <select
+                id="birthMonth"
+                required=""
+                class="w-full bg-[#1a1c22] border border-white/20 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-white transition"
+              >
+                <option value="" disabled="" selected="">Mes</option>
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+              </select>
+              <!-- Año -->
+              <input
+                id="birthYear"
+                type="number"
+                required=""
+                min="1920"
+                max="2007"
+                placeholder="Año (e.g. 2000)"
+                class="w-full bg-[#1a1c22] border border-white/20 rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition"
+              />
+            </div>
+            <span class="block text-xs text-gray-400 mt-2">
+              <i class="fa-solid fa-circle-info mr-1 text-gray-400"></i>
+              Productos no disponibles para venta a menores de edad.
+            </span>
+          </div>
+          <!-- Error -->
+          <div
+            id="ageErrorMsg"
+            class="hidden p-3 rounded-lg bg-red-950/80 border border-red-500/50 text-red-200 text-xs flex items-center gap-2"
+          >
+            <i class="fa-solid fa-triangle-exclamation text-red-400"></i>
+            <span>Debes tener al menos 18 años para acceder a este sitio. Acceso restringido.</span>
+          </div>
+          <!-- Recordar -->
+          <div class="flex items-center gap-2 pt-1">
+            <input
+              id="rememberMe"
+              type="checkbox"
+              class="w-4 h-4 rounded bg-[#1a1c22] border-white/30 text-white focus:ring-0 cursor-pointer"
+            />
+            <label for="rememberMe" class="text-xs text-gray-300 cursor-pointer">
+              Recordar mi verificación en este dispositivo
+            </label>
+          </div>
+          <!-- Botones -->
+          <div class="pt-3 space-y-2">
+            <button
+              id="btnAgeSubmit"
+              type="button"
+              onclick="verifyAge()"
+              class="w-full bg-white hover:bg-gray-200 text-black font-extrabold uppercase tracking-wider py-3.5 rounded-lg text-sm transition-all duration-200 transform hover:scale-[1.01] shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>INGRESAR (+18)</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+            <button
+              type="button"
+              onclick="exitUnderage()"
+              class="w-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white text-xs font-semibold py-2.5 rounded-lg transition cursor-pointer"
+            >
+              Soy menor de 18 años / Salir
+            </button>
+          </div>
+        </form>
+        <!-- Pie Modal Age -->
+        <div class="mt-6 pt-5 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
+          <span>
+            <i class="fa-solid fa-shield-halved mr-1"></i>
+            Adultos únicamente (+18)
+          </span>
+          <span>
+            <i class="fa-solid fa-circle-check mr-1 text-emerald-400"></i>
+            Uso Responsable
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Botón flotante Age Gate para pruebas -->
+    <button
+      onclick="openAgeGate()"
+      class="fixed bottom-4 right-4 z-40 bg-black/80 hover:bg-black text-gray-300 hover:text-white text-xs px-3.5 py-2.5 rounded-full border border-white/20 backdrop-blur-md transition flex items-center gap-2 shadow-lg"
+      title="Probar verificación de edad"
+    >
+      <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+      <span>Modo Prueba: Age Gate (+18)</span>
+    </button>
+    <!-- ========================================== -->
+    <!-- 2. VIDEO DE FONDO -->
+    <!-- ========================================== -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+      <video
+        id="bgVideo"
+        autoplay=""
+        loop=""
+        muted=""
+        playsinline=""
+        preload="auto"
+        class="absolute inset-0 w-full h-full object-cover opacity-35 filter brightness-75 contrast-125"
+      >
+        <source
+          src="https://raw.githubusercontent.com/JoNB3x/jmedranoa/main/assets/img/videolclouds.webm"
+          type="video/webm"
+        />
+        <source
+          src="https://assets.mixkit.co/videos/preview/mixkit-smoke-moving-on-a-black-background-40767-large.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[#0c0e12]/80 via-[#0c0e12]/60 to-[#0c0e12]/95 backdrop-blur-[2px]"
+      ></div>
+    </div>
+    <!-- LOGO DE FONDO SUTIL -->
+    <div class="fixed inset-0 -z-[5] flex items-center justify-center pointer-events-none">
+      <img
+        src="assets/img/LOGO-SMOKE-PNG.png"
+        alt="Logo Das Smok Shop"
+        class="w-[60vw] max-w-[600px] opacity-[0.05] object-contain select-none"
+      />
+    </div>
+    <!-- ========================================== -->
+    <!-- 3. TOP NAVIGATION BAR -->
+    <!-- ========================================== -->
+    <header
+      class="header-glow fixed top-0 left-0 w-full bg-[#0c0e12]/85 backdrop-blur-md z-40 border-b border-white/10 transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- Logo & Brand -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div
+            class="w-11 h-11 rounded-xl bg-white/5 border border-white/20 flex items-center justify-center overflow-hidden p-1 group-hover:border-white transition"
+          >
+            <img src="assets/img/LOGO-SMOKE-PNG.png" alt="Das Smok Shop" class="w-full h-full object-contain" />
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-extrabold text-lg tracking-wider uppercase text-white group-hover:text-gray-200 transition"
+            >
+              DAS SMOK SHOP
+            </span>
+            <span class="text-xs tracking-widest text-gray-400 uppercase">Boost Your Breathing &amp; Salts</span>
+          </div>
+        </a>
+        <!-- Enlaces Menú -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+          <a href="#catalogo" class="nav-link">Catálogo</a>
+          <a href="#pagos" class="nav-link">Métodos de Pago</a>
+          <a href="#comprar" class="nav-link">Cómo Comprar</a>
+          <a href="#contacto" class="nav-link">Contacto</a>
+        </nav>
+        <!-- Botones de Acción -->
+        <div class="flex items-center gap-3">
+          <a
+            href="https://www.instagram.com/dassmokshop/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white transition"
+            title="Instagram Oficial"
+          >
+            <i class="fa-brands fa-instagram text-base"></i>
+          </a>
+          <a
+            href="#catalogo"
+            class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold tracking-wider uppercase transition shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+          >
+            Explorar Catálogo
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- ========================================== -->
+    <!-- 4. HERO SECTION -->
+    <!-- ========================================== -->
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto text-center z-10 fade-up">
+        <!-- Badge Superior -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 backdrop-blur-md mb-8"
+        >
+          <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+          <span class="text-xs font-semibold uppercase tracking-widest text-gray-300">
+            Disponibilidad Inmediata &amp; Despacho Express
+          </span>
+        </div>
+        <!-- Título Principal -->
+        <h1
+          class="text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-white mb-6 leading-tight"
+        >
+          No Fumes ! Vapea
+          <br class="hidden sm:inline" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">
+            BOOST YOUR BREATHING
+          </span>
+        </h1>
+        <!-- Descripción -->
+        <p class="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
+          Accesorios, Desechables de alta autonomía, StreetWear y sales de nicotina con entrega personalizada en
+          Colombia e internacional.
+        </p>
+        <!-- Botones CTA -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="#catalogo"
+            class="w-full sm:w-auto bg-white hover:bg-gray-200 text-black font-extrabold uppercase tracking-wider text-sm px-8 py-4 rounded-xl shadow-[0_0_25px_rgba(255,255,255,0.35)] transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2 pulse"
+          >
+            <span>Ver Dispositivos</span>
+            <i class="fa-solid fa-arrow-down text-xs"></i>
+          </a>
+          <a
+            href="https://wa.me/573023259916?text=Hola%20Das%20Smoke%20Shop,%20deseo%20información%20sobre%20los%20dispositivos%20disponibles"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white border border-white/20 font-bold uppercase tracking-wider text-sm px-8 py-4 rounded-xl backdrop-blur-md transition flex items-center justify-center gap-2"
+          >
+            <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i>
+            <span>Asesoría</span>
+          </a>
+        </div>
+        <!-- Tarjetas Rápidas de Confianza -->
+        <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm card-zoom">
+            <div class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Pagos Locales</div>
+            <div class="text-sm sm:text-base font-bold text-white mt-1">Nequi &amp; Bancolombia &amp; Nu</div>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm card-zoom">
+            <div class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Cripto &amp; USD</div>
+            <div class="text-sm sm:text-base font-bold text-white mt-1">Binance / Wally / Zelle</div>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm card-zoom">
+            <div class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Doble Divisa</div>
+            <div class="text-sm sm:text-base font-bold text-white mt-1">Precios COP / USD</div>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm card-zoom">
+            <div class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Despacho</div>
+            <div class="text-sm sm:text-base font-bold text-white mt-1">Express Motorizado</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========================================== -->
+    <!-- 5. CATÁLOGO DE PRODUCTOS (COP PRINCIPAL & USD EQUIVALENTE) -->
+    <!-- ========================================== -->
+    <section id="catalogo" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 fade-up">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-gray-400">
+            // Equipos &amp; Líquidos Certificados
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mt-2">
+            Catálogo Das Smok Shop
+          </h2>
+        </div>
+        <!-- Filtros de Categoría -->
+        <div id="catalogFilters" class="flex flex-wrap gap-2 mt-4 md:mt-0 text-xs">
+          <button
+            data-filter="todos"
+            class="filter-btn px-4 py-2 rounded-lg bg-white text-black font-bold uppercase tracking-wider transition"
+          >
+            Todos
+          </button>
+          <button
+            data-filter="desechables"
+            class="filter-btn px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 uppercase tracking-wider transition"
+          >
+            Desechables
+          </button>
+          <button
+            data-filter="street"
+            class="filter-btn px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 uppercase tracking-wider transition"
+          >
+            Street Wear
+          </button>
+        </div>
+      </div>
+      <!-- GRID DE PRODUCTOS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Producto 1: LitPod 15000 (Desechable) -->
+        <div
+          class="product-card bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up"
+          data-category="desechables"
+        >
+          <div>
+            <div
+              class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider"
+            >
+              <span>15,000 Puffs</span>
+              <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">Top Seller</span>
+            </div>
+            <div
+              class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center overflow-hidden mb-6 border border-white/5"
+            >
+              <img src="assets/img/litpod15000.png" alt="LitPod 15000 Puffs" class="w-full h-full object-contain p-2" />
+            </div>
+            <h3 class="text-xl font-bold uppercase tracking-wide text-white">LitPod 15000 Puffs Dual Mesh</h3>
+            <p class="text-sm text-gray-300 mt-2 leading-relaxed">
+              Pod Kit: Bateria + Capsula Prellenada, Pantalla OLED integrada, indicador de nivel de líquido y batería. Potencia dual regulable.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded text-gray-200">
+                Frozen Grape
+              </span>
+              <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded text-gray-200">
+                Green Apple
+              </span>
+              <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded text-gray-200">
+                Frozen Watermelon
+              </span>
+              <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded text-gray-200">
+                Frozen Blueberry
+              </span>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
+            <div>
+              <div class="text-2xl font-black text-white">$85.000 COP</div>
+              <div class="text-xs text-gray-400 font-medium">Equiv: $25.00 USD</div>
+            </div>
+            <button
+              onclick="
+                openQuickView('LitPod 15000 Puffs Dual Mesh', 85000, 25.0, [
+                  'Frozen Grape',
+                  'Green Apple',
+                  'Frozen Watermelon',
+                  'Frozen Blueberry',
+                ])
+              "
+              class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            >
+              <span>Pedir</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Producto 2: Kit Switch 5000 (Desechable) -->
+        <div
+          class="product-card bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up"
+          data-category="desechables"
+        >
+          <div>
+            <div
+              class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider"
+            >
+              <span>5,000 Puffs</span>
+              <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">New</span>
+            </div>
+            <div
+              class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5"
+            >
+              <i class="fa-solid fa-bolt text-5xl text-gray-400"></i>
+            </div>
+            <h3 class="text-xl font-bold uppercase tracking-wide text-white">Kit Switch 5000</h3>
+            <p class="text-sm text-gray-300 mt-2 leading-relaxed">
+              Dispositivo compacto con excelente autonomía, calada suave y sabores intensos de larga duración.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded text-gray-200">
+                Strawberry Ice
+              </span>
+              <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded text-gray-200">Cool Mint</span>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
+            <div>
+              <div class="text-2xl font-black text-white">$55.000 COP</div>
+              <div class="text-xs text-gray-400 font-medium">Equiv: $14.00 USD</div>
+            </div>
+            <button
+              onclick="openQuickView('Kit Switch 5000', 56000, 14.0, ['Strawberry Ice', 'Cool Mint'])"
+              class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5"
+            >
+              <span>Pedir</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Producto 3: Click 30000 (Desechable) -->
+        <div
+          class="product-card bg-[#111317]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between card-zoom fade-up"
+          data-category="desechables"
+        >
+          <div>
+            <div
+              class="flex items-center justify-between text-xs text-gray-400 mb-3 font-semibold uppercase tracking-wider"
+            >
+              <span>30,000 Puffs</span>
+              <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">Mega Puff</span>
+            </div>
+            <div
+              class="w-full h-48 bg-gradient-to-b from-white/5 to-transparent rounded-xl flex items-center justify-center mb-6 border border-white/5"
+            >
+              <i class="fa-solid fa-cloud text-5xl text-gray-400"></i>
+            </div>
+            <h3 class="text-xl font-bold uppercase tracking-wide text-white">Click 30000</h3>
+            <p class="text-sm text-gray-300 mt-2 leading-relaxed">
+              Autonomía extrema con flujo de aire personalizable, sabores premium y rendimiento inalterable.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded text-gray-200">Grape Ice</span>
+              <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded text-gray-200">
+                Mango Blast
+              </span>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
+            <div>
+              <div class="text-2xl font-black text-white">$112.000 COP</div>
+              <div class="text-xs text-gray-400 font-medium">Equiv: $28.00 USD</div>
+            </div>
+            <button
+              onclick="openQuickView('Click 30000', 112000, 28.0, ['Grape Ice', 'Mango Blast'])"
+              class="bg-white hover:bg-gray-200 text-black px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5"
+            >
+              <span>Pedir</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+        <!-- STREET WEAR (Próximamente) -->
+        <div
+          class="product-card bg-[#111317]/60 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col items-center justify-center text-center fade-up"
+          data-category="street"
+        >
+          <i class="fa-solid fa-shirt text-5xl text-gray-400 mb-4"></i>
+          <h3 class="text-xl font-bold uppercase tracking-wide text-white">Street Wear</h3>
+          <p class="text-sm text-gray-300 mt-2 leading-relaxed max-w-[240px]">
+            Próximamente: gorras, hoodies, camisetas oversize y accesorios exclusivos Das Smok Shop.
+          </p>
+          <span
+            class="mt-4 inline-block px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-semibold text-gray-300 uppercase"
+          >
+            En Confección
+          </span>
+        </div>
+      </div>
+    </section>
+    <!-- ========================================== -->
+    <!-- 6. MÉTODOS DE PAGO Y PASOS DE COMPRA -->
+    <!-- ========================================== -->
+    <section id="pagos" class="py-20 bg-black/40 border-y border-white/10 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
+          <span class="text-xs font-bold uppercase tracking-widest text-gray-400">
+            // Transacciones Seguras &amp; Múltiples Monedas
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mt-2">
+            Métodos de Pago Aceptados
+          </h2>
+          <p class="text-sm sm:text-base text-gray-300 mt-3 leading-relaxed">
+            Procesamos pagos en Pesos Colombianos (COP) mediante transferencias inmediatas y en Dólares (USD) a través
+            de billeteras globales y efectivo contra entrega.
+          </p>
+        </div>
+        <!-- Tarjetas de Pago con Fuentes Legibles -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <!-- Nequi & Bancolombia -->
+          <div
+            class="bg-[#111317] border border-white/10 rounded-2xl p-6 card-zoom fade-up text-center flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="w-12 h-12 mx-auto rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white text-xl mb-4"
+              >
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+              <h4 class="font-bold text-base uppercase text-white">Nequi &amp; Bancolombia</h4>
+              <p class="text-sm text-gray-300 mt-2 leading-relaxed">
+                Transferencias en COP inmediatas por app móvil o código QR directo.
+              </p>
+            </div>
+            <span class="inline-block mt-4 text-xs uppercase font-mono px-2.5 py-1 rounded bg-white/10 text-gray-200">
+              COP Inmediato
+            </span>
+          </div>
+          <!-- Daviplata -->
+          <div
+            class="bg-[#111317] border border-white/10 rounded-2xl p-6 card-zoom fade-up text-center flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="w-12 h-12 mx-auto rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white text-xl mb-4"
+              >
+                <i class="fa-solid fa-mobile-screen"></i>
+              </div>
+              <h4 class="font-bold text-base uppercase text-white">Daviplata</h4>
+              <p class="text-sm text-gray-300 mt-2 leading-relaxed">
+                Pago móvil rápido en COP desde cualquier celular en segundos.
+              </p>
+            </div>
+            <span class="inline-block mt-4 text-xs uppercase font-mono px-2.5 py-1 rounded bg-white/10 text-gray-200">
+              COP al Instante
+            </span>
+          </div>
+          <!-- Binance Pay -->
+          <div
+            class="bg-[#111317] border border-white/10 rounded-2xl p-6 card-zoom fade-up text-center flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="w-12 h-12 mx-auto rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white text-xl mb-4"
+              >
+                <i class="fa-brands fa-bitcoin"></i>
+              </div>
+              <h4 class="font-bold text-base uppercase text-white">Binance Pay</h4>
+              <p class="text-sm text-gray-300 mt-2 leading-relaxed">
+                USDT sin comisión con escaneo QR instantáneo desde tu billetera cripto.
+              </p>
+            </div>
+            <span class="inline-block mt-4 text-xs uppercase font-mono px-2.5 py-1 rounded bg-white/10 text-gray-200">
+              0% Comisión USDT
+            </span>
+          </div>
+          <!-- Zelle / Wally -->
+          <div
+            class="bg-[#111317] border border-white/10 rounded-2xl p-6 card-zoom fade-up text-center flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="w-12 h-12 mx-auto rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white text-xl mb-4"
+              >
+                <i class="fa-solid fa-dollar-sign"></i>
+              </div>
+              <h4 class="font-bold text-base uppercase text-white">Zelle / Wally</h4>
+              <p class="text-sm text-gray-300 mt-2 leading-relaxed">
+                Transferencias bancarias en USD directas para clientes internacionales.
+              </p>
+            </div>
+            <span class="inline-block mt-4 text-xs uppercase font-mono px-2.5 py-1 rounded bg-white/10 text-gray-200">
+              USD Directo
+            </span>
+          </div>
+          <!-- Efectivo -->
+          <div
+            class="bg-[#111317] border border-white/10 rounded-2xl p-6 card-zoom fade-up text-center flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="w-12 h-12 mx-auto rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white text-xl mb-4"
+              >
+                <i class="fa-solid fa-handshake"></i>
+              </div>
+              <h4 class="font-bold text-base uppercase text-white">Efectivo</h4>
+              <p class="text-sm text-gray-300 mt-2 leading-relaxed">
+                Pago exacto al momento de la entrega personal o Pick-Up acordado.
+              </p>
+            </div>
+            <span class="inline-block mt-4 text-xs uppercase font-mono px-2.5 py-1 rounded bg-white/10 text-gray-200">
+              Contra Entrega
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========================================== -->
+    <!-- 7. CÓMO COMPRAR (PASOS SENCILLOS) -->
+    <!-- ========================================== -->
+    <section id="comprar" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
+        <span class="text-xs font-bold uppercase tracking-widest text-gray-400">// Pasos Sencillos</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mt-2">
+          ¿Cómo Comprar en Das Smok Shop?
+        </h2>
+        <p class="text-sm sm:text-base text-gray-300 mt-2">
+          Tu pedido directo a tus manos o listo para retirar en solo 3 pasos simples.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Paso 1 -->
+        <div class="bg-[#111317] border border-white/10 rounded-2xl p-8 relative card-zoom fade-up">
+          <span class="absolute top-6 right-6 text-4xl font-black text-white/10">01</span>
+          <div
+            class="w-12 h-12 rounded-xl bg-white/5 border border-white/20 flex items-center justify-center text-white text-xl mb-6"
+          >
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+          <h3 class="text-xl font-bold uppercase text-white mb-2">Elige tus Productos</h3>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            Revisa nuestro catálogo online, selecciona tus sabores favoritos, dispositivos de alta autonomía o repuestos
+            necesarios.
+          </p>
+        </div>
+        <!-- Paso 2 -->
+        <div class="bg-[#111317] border border-white/10 rounded-2xl p-8 relative card-zoom fade-up">
+          <span class="absolute top-6 right-6 text-4xl font-black text-white/10">02</span>
+          <div
+            class="w-12 h-12 rounded-xl bg-white/5 border border-white/20 flex items-center justify-center text-white text-xl mb-6"
+          >
+            <i class="fa-solid fa-credit-card"></i>
+          </div>
+          <h3 class="text-xl font-bold uppercase text-white mb-2">Selecciona tu Pago</h3>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            Transfiere vía Nequi, Bancolombia, Daviplata, Nu, Binance Pay (USDT), Zelle o abona en efectivo COP / USD al
+            recibir.
+          </p>
+        </div>
+        <!-- Paso 3 -->
+        <div class="bg-[#111317] border border-white/10 rounded-2xl p-8 relative card-zoom fade-up">
+          <span class="absolute top-6 right-6 text-4xl font-black text-white/10">03</span>
+          <div
+            class="w-12 h-12 rounded-xl bg-white/5 border border-white/20 flex items-center justify-center text-white text-xl mb-6"
+          >
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3 class="text-xl font-bold uppercase text-white mb-2">Despacho Express</h3>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            Recibe tu orden por delivery motorizado express, punto de encuentro coordinado o con guía
+            nacional rápida y asegurada.
+          </p>
+        </div>
+      </div>
+      <!-- Banner Soporte WhatsApp VIP -->
+      <div
+        class="mt-12 bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 fade-up"
+      >
+        <div>
+          <span class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Atención Personalizada 24/7</span>
+          <h4 class="text-xl font-bold text-white mt-1">¿Tienes dudas o buscas un sabor específico?</h4>
+          <p class="text-sm text-gray-300 mt-1">
+            Nuestro equipo te atiende de inmediato por el canal de mensajería VIP.
+          </p>
+        </div>
+        <a
+          href="https://wa.me/573023259916?text=Hola,%20tengo%20una%20consulta%20sobre%20los%20dispositivos%20en%20Das%20Smoke%20Shop"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-white hover:bg-gray-200 text-black px-6 py-3.5 rounded-xl font-extrabold uppercase tracking-wider text-xs whitespace-nowrap transition shadow-[0_0_20px_rgba(255,255,255,0.25)] flex items-center gap-2"
+        >
+          <i class="fa-brands fa-whatsapp text-sm text-emerald-600"></i>
+          <span>Chatear con un Asesor</span>
+        </a>
+      </div>
+    </section>
+    <!-- ========================================== -->
+    <!-- 8. BANNER MARCA VIP CON ENLACES SOCIALES -->
+    <!-- ========================================== -->
+    <section id="contacto" class="py-24 border-t border-white/10 bg-black/60 relative">
+      <div class="max-w-4xl mx-auto px-4 text-center fade-up">
+        <div
+          class="w-20 h-20 mx-auto rounded-2xl bg-white/5 border border-white/20 p-2 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+        >
+          <i class="fa-solid fa-crown text-3xl text-white"></i>
+        </div>
+        <span class="text-xs uppercase tracking-widest text-gray-400 font-mono">// EXPERIENCIA EXCLUSIVA</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white mt-3 mb-6">
+          BOOST YOUR BREATHING
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-10 leading-relaxed">
+          En
+          <strong class="text-white">Das Smok Shop</strong>
+          combinamos la selección de hardware mas novedoso del mercado global con un servicio atencion privado. Cada
+          pod, dispositivo y esencia cuenta con garantía de autenticidad y despacho express coordinado al
+          instante.
+        </p>
+        <!-- Botones Redes / Contacto -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="https://wa.me/573023259916?text=Hola%20Das%20Smoke%20Shop,%20quiero%20hacer%20un%20pedido%20directo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto bg-white hover:bg-gray-200 text-black font-extrabold uppercase tracking-wider text-xs px-8 py-4 rounded-xl transition shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2"
+          >
+            <i class="fa-brands fa-whatsapp text-base text-emerald-600"></i>
+            <span>Atención Inmediata WhatsApp</span>
+          </a>
+          <a
+            href="https://www.instagram.com/dassmokshop/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white border border-white/20 font-bold uppercase tracking-wider text-xs px-8 py-4 rounded-xl backdrop-blur-md transition flex items-center justify-center gap-2"
+          >
+            <i class="fa-brands fa-instagram text-base"></i>
+            <span>Comunidad Instagram</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- ========================================== -->
+    <!-- 9. FOOTER INFORMATIVO & LEGAL (+18) -->
+    <!-- ========================================== -->
+    <footer class="bg-[#08090b] border-t border-white/10 py-12 text-sm text-gray-400">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <!-- Columna 1 -->
+        <div>
+          <div class="flex items-center gap-2 text-white font-extrabold text-base uppercase tracking-wider mb-3">
+            <i class="fa-solid fa-bolt"></i>
+            <span>DAS SMOK SHOP</span>
+          </div>
+          <p class="text-sm text-gray-300 leading-relaxed mb-4">
+            Smoke Shop de vapeo premium, Dispositivos, Street Wear, esencias y accesorios con entrega
+            personal rápida y segura.
+          </p>
+          <a
+            href="https://www.instagram.com/dassmokshop/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-300 hover:text-white font-mono text-xs"
+          >
+            @dassmokshop
+          </a>
+        </div>
+        <!-- Columna 2 -->
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-wider mb-3">Horario de Atención</h5>
+          <ul class="space-y-1.5 text-sm text-gray-300">
+            <li>
+              Lunes a Sábado:
+              <strong class="text-white">10:00 AM - 8:00 PM</strong>
+            </li>
+            <li>
+              Domingos &amp; Feriados:
+              <strong class="text-white">12:00 PM - 6:00 PM</strong>
+            </li>
+            <li class="pt-2 text-xs text-gray-400">Contactanos WhatsApp: 24/7 para pedidos programados.</li>
+          </ul>
+        </div>
+        <!-- Columna 3 -->
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-wider mb-3">Zonas de Entrega</h5>
+          <ul class="space-y-1.5 text-sm text-gray-300">
+            <li>• Entregas Personales y Pick-Up coordinado.</li>
+            <li>• Envíos Express urbanos motorizados directos a tu ubicación.</li>
+            <li>• Envíos nacionales prioritarios y asegurados con guía activa.</li>
+          </ul>
+        </div>
+        <!-- Columna 4 -->
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-wider mb-3">Métodos Aceptados</h5>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded text-xs text-gray-200">Nequi</span>
+            <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded text-xs text-gray-200">Bancolombia</span>
+            <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded text-xs text-gray-200">Daviplata</span>
+            <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded text-xs text-gray-200">
+              Binance Pay (USDT)
+            </span>
+            <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded text-xs text-gray-200">Zelle / USD</span>
+            <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded text-xs text-gray-200">
+              Efectivo COP
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Advertencia Legal -->
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400"
+      >
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-triangle-exclamation text-amber-400 text-sm"></i>
+          <span>PROHIBIDA LA VENTA A MENORES DE 18 AÑOS (+18 LEGAL COMPLIANCE)</span>
+        </div>
+        <div>© 2025 Das Smok Shop. Todos los derechos reservados.</div>
+      </div>
+    </footer>
+    <!-- ========================================== -->
+    <!-- 10. MODAL QUICK VIEW (PEDIDO EXPRESS WHATSAPP) -->
+    <!-- ========================================== -->
+    <div
+      id="quickViewModal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div
+        id="modalCard"
+        class="relative w-full max-w-md bg-[#111317] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl transform scale-95 transition-transform duration-300 overflow-hidden"
+      >
+        <!-- Cerrar -->
+        <button
+          onclick="closeQuickView()"
+          class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center transition cursor-pointer"
+        >
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+        <span class="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono">// Pedido Express</span>
+        <h3 id="modalProductTitle" class="text-xl font-bold uppercase tracking-wide text-white mt-1">
+          Nombre Producto
+        </h3>
+        <!-- Precios Dinámicos: Total COP Principal & USD Equivalente -->
+        <div class="mt-4 p-4 rounded-xl bg-white/5 border border-white/10">
+          <div class="text-xs uppercase tracking-wider text-gray-400 font-medium">Total a Pagar (COP)</div>
+          <div class="flex items-baseline gap-3 mt-1">
+            <span id="modalProductCop" class="text-3xl font-black text-white">$0 COP</span>
+            <span id="modalProductUsd" class="text-xs font-semibold text-gray-400">Equiv: $0.00 USD</span>
+          </div>
+        </div>
+        <!-- Sabor / Variante con Menú Desplegable Contenido -->
+        <div class="mt-5 w-full">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+            Selecciona Sabor / Opción
+          </label>
+          <div class="relative w-full">
+            <select
+              id="modalFlavorSelect"
+              class="w-full bg-[#1a1c22] border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white transition cursor-pointer appearance-none"
+            ></select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+              <i class="fa-solid fa-chevron-down text-xs"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Selector de Cantidad -->
+        <div class="mt-5">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Cantidad</label>
+          <div class="flex items-center gap-3">
+            <button
+              onclick="adjustQty(-1)"
+              class="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 flex items-center justify-center text-white text-base font-bold transition cursor-pointer"
+            >
+              -
+            </button>
+            <span id="modalQty" class="text-base font-bold text-white px-4 font-mono">1</span>
+            <button
+              onclick="adjustQty(1)"
+              class="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 flex items-center justify-center text-white text-base font-bold transition cursor-pointer"
+            >
+              +
+            </button>
+          </div>
+        </div>
+        <!-- Botón WhatsApp -->
+        <button
+          onclick="confirmWhatsappOrder()"
+          class="mt-6 w-full bg-white hover:bg-gray-200 text-black font-extrabold uppercase tracking-wider py-4 rounded-xl text-xs transition shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+          <span>Completar Pedido por WhatsApp</span>
+        </button>
+      </div>
+    </div>
+    <!-- ========================================== -->
+    <!-- 11. SCRIPTS DE CONTROL & INTERACCIÓN -->
+    <!-- ========================================== -->
+    <script>
+      let currentProduct = "";
+      let unitPriceCop = 0;
+      let unitPriceUsd = 0;
+      let quantity = 1;
+      const WHATSAPP_NUMBER = "573023259916";
+      /* Validación del Age Gate (+18) */ function verifyAge() {
+        const yearInput = document.getElementById("birthYear");
+        const year = parseInt(yearInput.value, 10);
+        const errorMsg = document.getElementById("ageErrorMsg");
+        const remember = document.getElementById("rememberMe").checked;
+        if (isNaN(year) || year < 1920 || year > 2007) {
+          errorMsg.classList.remove("hidden");
+          return;
+        }
+        errorMsg.classList.add("hidden");
+        if (remember) {
+          try {
+            localStorage.setItem("dassmok_age_verified", "true");
+          } catch (e) {}
+        }
+        const gate = document.getElementById("ageGate");
+        gate.classList.add("hidden-gate");
+        gate.style.display = "none";
+        playBackgroundVideo();
+      }
+      function exitUnderage() {
+        alert("Acceso restringido: Esta tienda online contiene productos exclusivos para personas mayores de 18 años.");
+        window.location.href = "https://www.google.com";
+      }
+      function openAgeGate() {
+        const gate = document.getElementById("ageGate");
+        gate.style.display = "flex";
+        gate.classList.remove("hidden-gate");
+      }
+      window.addEventListener("DOMContentLoaded", () => {
+        try {
+          if (localStorage.getItem("dassmok_age_verified") === "true") {
+            const gate = document.getElementById("ageGate");
+            gate.classList.add("hidden-gate");
+            gate.style.display = "none";
+          }
+        } catch (e) {}
+        playBackgroundVideo();
+      });
+      function playBackgroundVideo() {
+        const video = document.getElementById("bgVideo");
+        if (video) {
+          video.play().catch(() => {});
+        }
+      }
+      /* Observer para Scroll Animations */ const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("show");
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+      document.querySelectorAll(".fade-up, .fade-in").forEach((el) => observer.observe(el));
+      /* Modal Quick View (Precios en COP principal & USD equivalente) */ function openQuickView(
+        title,
+        copPrice,
+        usdPrice,
+        flavors,
+      ) {
+        currentProduct = title;
+        unitPriceCop = Number(copPrice);
+        unitPriceUsd = Number(usdPrice);
+        quantity = 1;
+        document.getElementById("modalProductTitle").innerText = title;
+        document.getElementById("modalQty").innerText = quantity;
+        updateModalPrices();
+        const select = document.getElementById("modalFlavorSelect");
+        select.innerHTML = "";
+        flavors.forEach((f) => {
+          const opt = document.createElement("option");
+          opt.value = f;
+          opt.innerText = f;
+          select.appendChild(opt);
+        });
+        const modal = document.getElementById("quickViewModal");
+        const card = document.getElementById("modalCard");
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        card.classList.remove("scale-95");
+        card.classList.add("scale-100");
+      }
+      function updateModalPrices() {
+        const totalCop = unitPriceCop * quantity;
+        const totalUsd = unitPriceUsd * quantity;
+        document.getElementById("modalProductCop").innerText = `$${totalCop.toLocaleString("es-CO")} COP`;
+        document.getElementById("modalProductUsd").innerText = `Equiv: $${totalUsd.toFixed(2)} USD`;
+      }
+      function closeQuickView() {
+        const modal = document.getElementById("quickViewModal");
+        const card = document.getElementById("modalCard");
+        modal.classList.add("opacity-0", "pointer-events-none");
+        card.classList.remove("scale-100");
+        card.classList.add("scale-95");
+      }
+      function adjustQty(amount) {
+        quantity += amount;
+        if (quantity < 1) quantity = 1;
+        document.getElementById("modalQty").innerText = quantity;
+        updateModalPrices();
+      }
+      function confirmWhatsappOrder() {
+        const flavor = document.getElementById("modalFlavorSelect").value || "Estándar";
+        const totalCop = (unitPriceCop * quantity).toLocaleString("es-CO");
+        const totalUsd = (unitPriceUsd * quantity).toFixed(2);
+        const text = `Hola Das Smok Shop! 👋 Deseo realizar el siguiente pedido:%0A%0A*Producto:* ${currentProduct}%0A*Sabor/Variante:* ${flavor}%0A*Cantidad:* ${quantity}%0A*Total a Pagar:* $${totalCop} COP (Equiv. $${totalUsd} USD)%0A%0A¿Tienen disponibilidad inmediata para coordinar el despacho?`;
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+        window.open(url, "_blank");
+        closeQuickView();
+      }
+      document.getElementById("quickViewModal").addEventListener("click", (e) => {
+        if (e.target.id === "quickViewModal") closeQuickView();
+      });
+      /* Filtro interactivo de catálogo */ const filterButtons = document.querySelectorAll(".filter-btn");
+      const productCards = document.querySelectorAll(".product-card");
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => {
+            b.classList.remove("bg-white", "text-black", "font-bold");
+            b.classList.add("bg-white/5", "text-gray-300");
+          });
+          btn.classList.add("bg-white", "text-black", "font-bold");
+          btn.classList.remove("bg-white/5", "text-gray-300");
+          const filter = btn.dataset.filter;
+          productCards.forEach((card) => {
+            const category = card.dataset.category;
+            if (filter === "todos" || filter === category) {
+              card.classList.remove("hide");
+              setTimeout(() => {
+                card.style.display = "flex";
+              }, 10);
+            } else {
+              card.classList.add("hide");
+              setTimeout(() => {
+                card.style.display = "none";
+              }, 250);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
+
